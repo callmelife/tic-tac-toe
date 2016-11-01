@@ -2,21 +2,38 @@
 <html>
     <head>
       <title>API Token Auth</title>
-
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>API Token Auth</h1>
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="submit" name="submit" value="Sign up!">
-        </fieldset>
-      </form>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="assets/styles/index.css">
 
-      <p>Accessing an authenticated API.</p>
+    </head>
+
+    <body class="container-fluid">
+          <div class="container">
+              <div class="row">
+                <div class="col-md-4 box top-left"></div>
+                <div class="col-md-4 box top-center"></div>
+                <div class="col-md-4 box top-right"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 box middle-left"></div>
+                <div class="col-md-4 box middle-center"></div>
+                <div class="col-md-4 box middle-right"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 box bottom-left"></div>
+                <div class="col-md-4 box bottom-center"></div>
+                <div class="col-md-4 box bottom-right"></div>
+              </div>
+            </div>
+          <div>
+          <script src="assets/scripts/main.js"></script>
+        <div class="displayWinner"></div>
+        <br>
+        <form>
+            <input type="button" onclick="resetBoard()" name="reset" value="Reset the Board">
+        </form>
     </body>
 </html>
