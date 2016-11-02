@@ -1,17 +1,36 @@
-// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
-//
-// $background-color: #4e4e4e;
-// $font-color: #dfdfdf;
-// $white: #ffa;
-//
-// body {
-//   background-color: $background-color;
-//   color: $font-color;
-// }
-//
-// .box {
-//   border: 1px solid black;
-//   height: 30px;
-//   background-color: blue;
-// }
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+$background-color: #4e4e4e;
+$font-color: #dfdfdf;
+$white: #ffa;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.col-md-4.box {
+  width: 100px;
+  height: 100px;
+  color: blue;
+  border: 2px solid grey;
+  text-align: center;
+  font-size: 24px;
+
+
+}
+.row {
+  display: flex;
+}
+
+body {
+width: 500px;
+height: 500px;
+background-color: yellow;
+}
+
+.container-fluid {
+  padding-left: 50px;
+
+}
