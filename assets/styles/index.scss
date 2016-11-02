@@ -25,3 +25,7 @@ body {
 .container-fluid {
   padding-left: 50px;
 }
+
+.disabled {
+  pointer-events: none;
+}

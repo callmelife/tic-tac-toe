@@ -2,44 +2,39 @@
 
 const authEvents = require('./auth/events.js');
 
-// On document ready
 $(() => {
   authEvents.addHandlers();
 });
 
 let ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
-
 let turnCounter = 1;
 let currentPlayer;
-let winner;
 
 let lockBoard = function(){
-  $('.top-left').off('click');
-  $('.top-center').off('click');
-  $('.top-right').off('click');
-  $('.middle-left').off('click');
-  $('.middle-center').off('click');
-  $('.middle-right').off('click');
-  $('.bottom-left').off('click');
-  $('.bottom-center').off('click');
-  $('.bottom-right').off('click');
+  $('.top-left').css("pointer-events", "none");
+  $('.top-center').css("pointer-events", "none");
+  $('.top-right').css("pointer-events", "none");
+  $('.middle-left').css("pointer-events", "none");
+  $('.middle-center').css("pointer-events", "none");
+  $('.middle-right').css("pointer-events", "none");
+  $('.bottom-left').css("pointer-events", "none");
+  $('.bottom-center').css("pointer-events", "none");
+  $('.bottom-right').css("pointer-events", "none");
 };
 
 let turnOnClicks = function(){
-  $('.top-left').on('click');
-  $('.top-center').on('click');
-  $('.top-right').on('click');
-  $('.middle-left').on('click');
-  $('.middle-center').on('click');
-  $('.middle-right').on('click');
-  $('.bottom-left').on('click');
-  $('.bottom-center').on('click');
-  $('.bottom-right').on('click');
+  $('.top-left').css("pointer-events", "auto");
+  $('.top-center').css("pointer-events", "auto");
+  $('.top-right').css("pointer-events", "auto");
+  $('.middle-left').css("pointer-events", "auto");
+  $('.middle-center').css("pointer-events", "auto");
+  $('.middle-right').css("pointer-events", "auto");
+  $('.bottom-left').css("pointer-events", "auto");
+  $('.bottom-center').css("pointer-events", "auto");
+  $('.bottom-right').css("pointer-events", "auto");
 };
 
-
 let checkForWinner = function(){
-
 // Win Method #1: horizontal top row
     if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[0][1] && ticTacArray[0][0] === ticTacArray[0][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
@@ -98,13 +93,9 @@ $('.top-left').click(function(){
         $(this).html('X');
           ticTacArray[0][0] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
-
-
 });
 
 $('.top-center').click(function(){
@@ -118,8 +109,6 @@ $('.top-center').click(function(){
         $(this).html('X');
           ticTacArray[0][1] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -136,8 +125,6 @@ $('.top-right').click(function(){
         $(this).html('X');
           ticTacArray[0][2] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -154,8 +141,6 @@ $('.middle-left').click(function(){
         $(this).html('X');
           ticTacArray[1][0] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -172,8 +157,6 @@ $('.middle-center').click(function(){
         $(this).html('X');
           ticTacArray[1][1] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -190,8 +173,6 @@ $('.middle-right').click(function(){
         $(this).html('X');
           ticTacArray[1][2] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -208,8 +189,6 @@ $('.bottom-left').click(function(){
         $(this).html('X');
           ticTacArray[2][0] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -226,8 +205,6 @@ $('.bottom-center').click(function(){
         $(this).html('X');
           ticTacArray[2][1] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
@@ -244,36 +221,32 @@ $('.bottom-right').click(function(){
         $(this).html('X');
           ticTacArray[2][2] = "X";
     }
-    console.log(currentPlayer);
-    console.log(ticTacArray);
     turnCounter++;
     checkForWinner();
   }
 });
 
-
-  // ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
-
-let resetBoard = function(){
-  $('.top-left').text('');
-    ticTacArray[0][0] = "box";
-  $('.top-center').text('');
-    ticTacArray[0][1] = "box";
-  $('.top-right').text('');
-    ticTacArray[0][2] = "box";
-  $('.middle-left').text('');
-    ticTacArray[1][0] = "box";
-  $('.middle-center').text('');
-    ticTacArray[1][1] = "box";
-  $('.middle-right').text('');
-    ticTacArray[1][2] = "box";
-  $('.bottom-left').text('');
-    ticTacArray[2][0] = "box";
-  $('.bottom-center').text('');
-    ticTacArray[2][1] = "box";
-  $('.bottom-right').text('');
-    ticTacArray[2][2] = "box";
-    turnOnClicks();
-};
-
-console.log(ticTacArray);
+$('.resetButton').on('click', function(){
+    $('.displayWinner').text("");
+    $('.top-left').text('');
+      // ticTacArray[0][0] = "box";
+    $('.top-center').text('');
+      // ticTacArray[0][1] = "box";
+    $('.top-right').text('');
+      // ticTacArray[0][2] = "box";
+    $('.middle-left').text('');
+      // ticTacArray[1][0] = "box";
+    $('.middle-center').text('');
+      // ticTacArray[1][1] = "box";
+    $('.middle-right').text('');
+      // ticTacArray[1][2] = "box";
+    $('.bottom-left').text('');
+      // ticTacArray[2][0] = "box";
+    $('.bottom-center').text('');
+      // ticTacArray[2][1] = "box";
+    $('.bottom-right').text('');
+      // ticTacArray[2][2] = "box";
+      turnCounter = 1;
+      ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
+      turnOnClicks();
+  });
