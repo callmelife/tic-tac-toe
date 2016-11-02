@@ -1,6 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 
+
+
 .box {
   border: 2px solid grey;
   color: blue;
@@ -15,8 +17,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 body {
-  width: 500px;
-  height: 500px;
+  width: 800px;
+  height: 800px;
   background-color: yellow;
 }
 

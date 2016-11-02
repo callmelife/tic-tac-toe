@@ -1,4 +1,6 @@
 'use strict';
+
+// require('./auth/events.js');
 // Player 1 = X
 // Player 2 = 0
 
