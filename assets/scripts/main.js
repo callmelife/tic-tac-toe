@@ -20,8 +20,7 @@ let lockBoard = function(){
   $('.bottom-right').off('click');
 };
 
-let resetBoard = function(){
-  // ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
+let turnOnClicks = function(){
   $('.top-left').on('click');
   $('.top-center').on('click');
   $('.top-right').on('click');
@@ -32,7 +31,6 @@ let resetBoard = function(){
   $('.bottom-center').on('click');
   $('.bottom-right').on('click');
 };
-
 
 
 let checkForWinner = function(){
@@ -100,7 +98,8 @@ $('.top-left').click(function(){
     turnCounter++;
     checkForWinner();
   }
-  else (ticTacArray[0][0] === "");
+
+
 });
 
 $('.top-center').click(function(){
@@ -247,5 +246,29 @@ $('.bottom-right').click(function(){
   }
 });
 
+
+  // ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
+
+let resetBoard = function(){
+  $('.top-left').text('');
+    ticTacArray[0][0] = "box";
+  $('.top-center').text('');
+    ticTacArray[0][1] = "box";
+  $('.top-right').text('');
+    ticTacArray[0][2] = "box";
+  $('.middle-left').text('');
+    ticTacArray[1][0] = "box";
+  $('.middle-center').text('');
+    ticTacArray[1][1] = "box";
+  $('.middle-right').text('');
+    ticTacArray[1][2] = "box";
+  $('.bottom-left').text('');
+    ticTacArray[2][0] = "box";
+  $('.bottom-center').text('');
+    ticTacArray[2][1] = "box";
+  $('.bottom-right').text('');
+    ticTacArray[2][2] = "box";
+    turnOnClicks();
+};
 
 console.log(ticTacArray);
