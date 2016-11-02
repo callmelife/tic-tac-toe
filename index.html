@@ -5,10 +5,92 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     </head>
 
     <body class="container-fluid">
+      <!-- NAV BAR STARTS HERE -->
+      <nav class="navbar navbar-default">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGN UP / IN <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+
+
+                <!-- Button trigger modal -->
+                <li>
+                  <a>
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
+                    SIGN UP BRO!
+                  </button></a></li>
+
+                <li><a href="#">SIGN UP</a></li>
+                <li><a href="#">SIGN IN</a></li>
+                <li><a href="#">CHANGE PASSWORD</a></li>
+                <li><a href="#">SIGN OUT</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+      </nav>
+      <!--NAV ENDS HERES -->
+      <h1>API Token Auth</h1>
+      <hr>
+      <div id="messages">
+        Not a message.
+      </div>
+      <hr>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="E-MAIL">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="conform password">
+          <input type="submit" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" placeholder="E-MAIL">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="old password">
+          <input type="password" name="passwords[new]" placeholder="new password">
+          <input type="submit" name="submit" value="Change Password!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input type="submit" name="submit" value="Sign Out!">
+        </fieldset>
+      </form>
           <div class="container">
               <div class="row">
                 <div class="col-md-4 box top-left"></div>
@@ -27,7 +109,7 @@
               </div>
             </div>
 
-          <script src="assets/scripts/main.js"></script>
+
         <div class="displayWinner">
         </div>
         <br>

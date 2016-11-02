@@ -1,27 +1,25 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 
-.col-md-4.box {
-  width: 100px;
-  height: 100px;
-  color: blue;
+.box {
   border: 2px solid grey;
-  text-align: center;
+  color: blue;
   font-size: 24px;
-
-
+  height: 100px;
+  text-align: center;
+  width: 100px;
 }
+
 .row {
   display: flex;
 }
 
 body {
-width: 500px;
-height: 500px;
-background-color: yellow;
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
 }
 
 .container-fluid {
   padding-left: 50px;
-
 }
