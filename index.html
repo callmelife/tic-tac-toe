@@ -50,47 +50,50 @@
       </div><!-- /.container-fluid -->
       </nav>
       <!--NAV ENDS HERES -->
-      <h1>API Token Auth</h1>
-      <hr>
+      <h1>Let's Play Tic-Tac-Toe!</h1>
+
       <div id="messages">
-        Not a message.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
-      <hr>
+    <hr>
       <form id="sign-up">
         <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="E-MAIL">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="conform password">
+          <legend>Use the fields below to create an account</legend>
+          <input type="text" name="credentials[email]" placeholder="E-Mail">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Conform Password">
           <input type="submit" name="submit" value="Sign up!">
         </fieldset>
       </form>
 
+
       <form id="sign-in">
         <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" placeholder="E-MAIL">
-          <input type="password" name="credentials[password]" placeholder="password">
+          <legend>Use the fields below to sign in to your account</legend>
+          <input type="text" name="credentials[email]" placeholder="E-Mail">
+          <input type="password" name="credentials[password]" placeholder="Password">
           <input type="submit" name="submit" value="Sign in!">
         </fieldset>
       </form>
 
       <form id="change-password">
         <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="old password">
-          <input type="password" name="passwords[new]" placeholder="new password">
+          <legend>After signing in, use the fields below to change your password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
           <input type="submit" name="submit" value="Change Password!">
         </fieldset>
       </form>
-
+      <br>
       <form id="sign-out">
         <fieldset>
-          <legend>Sign Out!</legend>
+          <label>Click the button below to sign out</label>
+          <br>
           <input type="submit" name="submit" value="Sign Out!">
         </fieldset>
       </form>
-          <div class="container">
+      <br>
+          <div class="container game-board">
               <div class="row">
                 <div class="col-md-4 box top-left"></div>
                 <div class="col-md-4 box top-center"></div>
@@ -107,10 +110,10 @@
                 <div class="col-md-4 box bottom-right"></div>
               </div>
             </div>
-
         <div class="displayWinner">
         </div>
         <br>
       <button class="resetButton" type="button">Click Here to Reset</button>
+        <br>
     </body>
 </html>

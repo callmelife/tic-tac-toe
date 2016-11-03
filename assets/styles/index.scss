@@ -1,31 +1,43 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap/';
 
-
+$maroon: #800000;
 
 .box {
-  border: 2px solid grey;
-  color: blue;
-  font-size: 24px;
+  border: 2px solid $maroon;
+  color: $maroon;
+  font-size: 40px;
   height: 100px;
+  margin: 1px;
   text-align: center;
   width: 100px;
+  padding-top: 20px;
 }
 
 .row {
   display: flex;
+
 }
 
 body {
-  width: 800px;
+  background-color: grey;
   height: 800px;
-  background-color: yellow;
+  width: 800px;
 }
 
-.container-fluid {
-  padding-left: 50px;
+// .container-fluid {
+//   padding-left: 50px;
+// }
+
+h1 {
+  color: maroon;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+  font-family: fantasy;
+
 }
 
-.disabled {
-  pointer-events: none;
-}
+// .game-board {
+//   margin: auto;
+// }
