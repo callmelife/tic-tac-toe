@@ -11,8 +11,9 @@ const createGame = function(){
 
   }).then(data=>app.game = data.game);
   };
-const getGame = (id,value) => {
-return $.ajax({
+
+const getGame = () => {
+$.ajax({
   url: app.host + '/games/'+app.game.id,
   method: "GET",
   headers: {
@@ -21,6 +22,17 @@ return $.ajax({
 
 });
 };
+// SAVED BEFORE HELP FROM KEVIN
+// const getGame = (id,value) => {
+// return $.ajax({
+//   url: app.host + '/games/'+app.game.id,
+//   method: "GET",
+//   headers: {
+//     Authorization: 'Token token=' + app.user.token,
+//   }
+//
+// });
+// };
 
 const updateGame = (index,value,trueOrFalse) => {
     // console.log('arguments are', id, value, TorF);

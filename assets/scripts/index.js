@@ -16,6 +16,8 @@
 
 const authEvents = require('./auth/events.js');
 const gameApi = require('./game/api.js');
+const getGame = require('./game/api.js');
+
 window.app = require('./app');
 let ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
 let turnCounter = 1;
@@ -353,6 +355,30 @@ $('.resetButton').on('click', function(){
     $('.game-board').hide();
   });
 
-// $(".game-counter").click(function(){
+
+$('.getStats').on('click', getGame);
+
+
+
+
+
+// $(".game-counter").text(app.user.cell);
+
+
+
 //
-// )};
+//
+// return $.ajax({
+//   url: app.host + '/games/'+ app.game.id,
+//   method: "PATCH",
+//   headers: {
+//     Authorization: 'Token token=' + app.user.token,
+//   },
+//   data: {
+//     "game": {
+//       "cell": {
+//         "index": index,
+//         "value": value
+//       },
+//       "over": trueOrFalse
+//     }
