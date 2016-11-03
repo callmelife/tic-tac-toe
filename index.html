@@ -95,25 +95,29 @@
       <br>
           <div class="container game-board">
               <div class="row">
-                <div class="col-md-4 box top-left"></div>
-                <div class="col-md-4 box top-center"></div>
-                <div class="col-md-4 box top-right"></div>
+                <div class="col-md-4 box top-left" data-item="0"></div>
+                <div class="col-md-4 box top-center" data-item="1"></div>
+                <div class="col-md-4 box top-right" data-item="2"></div>
               </div>
               <div class="row">
-                <div class="col-md-4 box middle-left"></div>
-                <div class="col-md-4 box middle-center"></div>
-                <div class="col-md-4 box middle-right"></div>
+                <div class="col-md-4 box middle-left" data-item="3"></div>
+                <div class="col-md-4 box middle-center" data-item="4"></div>
+                <div class="col-md-4 box middle-right" data-item="5"></div>
               </div>
               <div class="row">
-                <div class="col-md-4 box bottom-left"></div>
-                <div class="col-md-4 box bottom-center"></div>
-                <div class="col-md-4 box bottom-right"></div>
+                <div class="col-md-4 box bottom-left" data-item="6"></div>
+                <div class="col-md-4 box bottom-center" data-item="7"></div>
+                <div class="col-md-4 box bottom-right" data-item="8"></div>
               </div>
             </div>
         <div class="displayWinner">
         </div>
         <br>
-      <button class="resetButton" type="button">Click Here to Reset</button>
+      <button class="resetButton" type="button">Click Here to Start Your Game</button>
         <br>
+        <form id= "getGameById">
+        <input type="submit" value="Get Game by ID" class="btnstyle">
+        </form>
+        <div class="game-counter">1</div>
     </body>
 </html>

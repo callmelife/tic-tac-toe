@@ -1,14 +1,39 @@
 'use strict';
 
+// const translateBoardToGameState = function(){
+//   return Array.from($('.box').map((index, value) => {
+//     if($(value).hasClass('X')){
+//       return "X";
+//     }
+//     if($(value).hasClass('0')){
+//       return "0";
+//     }
+//     else {
+//       return "";
+//     }
+//   }));
+// };
+
 const authEvents = require('./auth/events.js');
-
-$(() => {
-  authEvents.addHandlers();
-});
-
+const gameApi = require('./game/api.js');
+window.app = require('./app');
 let ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
 let turnCounter = 1;
 let currentPlayer;
+
+$(() => {
+  authEvents.addHandlers();
+  $('.box').on('click', function(){
+    gameApi.updateGame($(this).attr('data-item'),currentPlayer === "Player 1"?"X":"O", checkForWinner()  );
+
+  });
+});
+
+// Patrick's instructions:
+// Get all game and API calls
+// Return array of games
+// write a function (did the user email b present on the game and get the lenght of that gameOn once tofilter through) check the win state
+//
 
 let lockBoard = function(){
   $('.top-left').css("pointer-events", "none");
@@ -35,44 +60,93 @@ let turnOnClicks = function(){
 };
 
 let checkForWinner = function(){
+  let over = false;
 // Win Method #1: horizontal top row
     if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[0][1] && ticTacArray[0][0] === ticTacArray[0][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+      over = true;
+      }
+      else {
+      over = false;
+      }
       lockBoard();
     }
 // Win Method #2: horizontal middle row
     else if (ticTacArray[1][0] !== "box" && (ticTacArray[1][0] === ticTacArray[1][1] && ticTacArray[1][0] === ticTacArray[1][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+      over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // Win Method #3: horizontal bottom row
     else if (ticTacArray[2][0] !== "box" && (ticTacArray[2][0] === ticTacArray[2][1] && ticTacArray[2][0] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // Win Method #4: vertical left row
     else if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[1][0] && ticTacArray[0][0] === ticTacArray[2][0])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // Win Method #5: vertical middle row
     else if (ticTacArray[0][1] !== "box" && (ticTacArray[0][1] === ticTacArray[1][1] && ticTacArray[0][1] === ticTacArray[2][1])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // Win Method #6: vertical right row
     else if (ticTacArray[0][2] !== "box" && (ticTacArray[0][2] === ticTacArray[1][2] && ticTacArray[0][2] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // win method 7: Top left to bottom right diagonal
     else if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[1][1] && ticTacArray[0][0] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // win method 8: top right to bottom left diagonal
     else if (ticTacArray[0][2] !== "box" && (ticTacArray[0][2] === ticTacArray[1][1] && ticTacArray[0][2] === ticTacArray[2][0])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
+      if (currentPlayer === 'Player 1' || 'Player 2'){
+        over = true;
+      }
+      else {
+        over = false;
+      }
       lockBoard();
     }
 // Makes sure the game ends at 9 clicks & doesnt cause a double reaction
@@ -80,6 +154,8 @@ let checkForWinner = function(){
       $(".displayWinner").text("No winner! This game is a draw");
       lockBoard();
   }
+  return over;
+
 };
 
 $('.top-left').click(function(){
@@ -88,10 +164,12 @@ $('.top-left').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[0][0] = "0";
+        $('.top-left').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[0][0] = "X";
+        ticTacArray[0][0] = "X";
+        $('.top-left').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -104,10 +182,12 @@ $('.top-center').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[0][1] = "0";
+        $('.top-center').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[0][1] = "X";
+        ticTacArray[0][1] = "X";
+        $('.top-center').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -120,10 +200,12 @@ $('.top-right').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[0][2] = "0";
+        $('.top-right').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[0][2] = "X";
+        ticTacArray[0][2] = "X";
+        $('.top-right').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -136,10 +218,12 @@ $('.middle-left').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[1][0] = "0";
+        $('.middle-left').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[1][0] = "X";
+        ticTacArray[1][0] = "X";
+        $('.middle-left').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -152,10 +236,12 @@ $('.middle-center').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[1][1] = "0";
+        $('.middle-center').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[1][1] = "X";
+        ticTacArray[1][1] = "X";
+        $('.middle-center').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -168,10 +254,12 @@ $('.middle-right').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[1][2] = "0";
+        $('.middle-right').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[1][2] = "X";
+        ticTacArray[1][2] = "X";
+        $('.middle-right').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -184,10 +272,12 @@ $('.bottom-left').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[2][0] = "0";
+        $('.bottom-left').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[2][0] = "X";
+        ticTacArray[2][0] = "X";
+        $('.bottom-left').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -200,10 +290,12 @@ $('.bottom-center').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[2][1] = "0";
+        $('.bottom-center').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[2][1] = "X";
+        ticTacArray[2][1] = "X";
+        $('.bottom-center').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -216,10 +308,12 @@ $('.bottom-right').click(function(){
       currentPlayer = 'Player 2';
         $(this).html('0');
         ticTacArray[2][2] = "0";
+        $('.bottom-right').addClass('0');
     } else {
       currentPlayer = 'Player 1';
         $(this).html('X');
-          ticTacArray[2][2] = "X";
+        ticTacArray[2][2] = "X";
+        $('.bottom-right').addClass('X');
     }
     turnCounter++;
     checkForWinner();
@@ -249,4 +343,16 @@ $('.resetButton').on('click', function(){
       turnCounter = 1;
       ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
       turnOnClicks();
+        console.log(ticTacArray);
+        gameApi.createGame();
+        $('.game-board').show();
+
   });
+
+  $(()=>{
+    $('.game-board').hide();
+  });
+
+// $(".game-counter").click(function(){
+//
+// )};
