@@ -14,13 +14,15 @@ const onGetGame = function (event) {
     .fail(ui.fail);
   };
 
-  const onGetGameByIdSuccess = (data) => {
-   // console.log(data.length);
-   app.games = data.games;
-   let length = app.games.length;
-   $("#gameOver").html(length);
-   // console.log(data);
-  };
+  // const onGetGameByIdSuccess = (data) => {
+  //  // console.log(data.length);
+  //  app.games = data.games;
+  //  let length = app.games.length;
+  //  $("#gameOver").html(length);
+  //  // console.log(data);
+  // };
+
+
 
 module.exports = {
   onGetGame,

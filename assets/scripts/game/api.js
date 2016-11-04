@@ -1,6 +1,8 @@
 'use strict';
 
 const app = require('../app');
+const gameInfo = require('../index.js');
+
 const createGame = function(){
   return $.ajax({
     url: app.host + '/games',

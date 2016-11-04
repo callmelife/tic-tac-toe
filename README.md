@@ -1,130 +1,51 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Link to your hosted game in the URL section of your Github repo.
+  -https://callmelife.github.io/tic-tac-toe/
 
-# API Token Authentication
+List technologies used.
+  -API
+  -javascript
+  -css
+  -SCSS
+  -JQuery
+  -ajax
+  -HTML
+  -github
+  -command line
+  -grunt serve
 
-## Introduction
 
-Using curl and jQuery.ajax to access an authenticated API with html forms to
-sign up, sign in, and sign out of an API. We'll also change our passwords. The
-API uses Token authentication and we'll see how to make authenticated request
-(sign out and change password).
+Document your planning and tell a story about your development process and problem-solving strategy.
+  -From the beginning I intended on using nested arrays. This type of object made the most sense to me
+  because of the way that the tic-tac-toe boxes were divided into 3 seperate rows.
 
-## Prerequisites
+  Once I had the array's format established, I decided to create the function required to check for winners because I was still formulating
+  the game's logic for placing values in the boxes and changing the value of the related array.
+  Creating the checkForWinner function wasnt too difficult once I drew out the arrays on paper
+  and figured out what combination of squares would result in a win.
 
--   jquery-ajax-*
+  As I mentioned, I had a harder time figuring out how to  display each player's respective symbol and change the value of the array.
+  With JQuery I was able to target each box, check to see if it still had it's default value of 'box', and if it did, I then knew that
+  that box hadnt been clicked yet. After determining that the box hadnt been clicked yet, I used a counter variable and the % operator
+  to determine which player should be assocaited with the odd / even clicks.
 
-## Objectives
+  At this point I was able to click through the game and see if either player won. After it was determined that a player had won, I
+  used a css event-pointer to prevent the user from being able to change any box's values or continue playing after a winner had been declared.
 
-By the end of this talk, developers should be able to:
+  Next, I created a reset button to remove the text that displayed which player had won, remove the current value being displayed in each box, and
+  reset the array's value back to the default so that users could play more games after clicking the reset button.
 
--   Use `curl` to access an authenticated API.
--   Use `$.ajax` to access an authenticated API.
+  Story about development: When constructing the API portion of the website I was having a lot of difficulties. Jason was able to push me in the right direction by instructing me to look in assets/scripts/auth/ui.js for what was missing. After looking through this page and the pages associated with it multiple times, I realized that the reason my API wasnt working was because I  didnt have all the code from class! I thought that the code I had
+  wrote prior was impacting the API but in reality I just had to take a step back, evaluate the code that I did have, check to see what was missing
+  and then move forwards from there by creating the 'signInSuccess', 'signOutSuccess', 'changePasswordSuccess', etc constants.
 
-## Instructions
 
-1.  [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone) this
-repository.
-1.  Create a new branch, `training`, for your work.
-1.  Install dependencies with `npm install`.
+List unsolved problems which would be fixed in future iterations.
+  -How to display more Ajax info such as the order of the moves in which they were makde.
+  -How many games the user won, not how many were played
+  -Playing with two users (what is this called? Jonathan was trying to implement it.
+  -Adding media queries to dynamically change the website based on screen size.
 
-## Using web APIs
 
-Web APIs often require some sort of authentication.  The game API requires users
-to register and then login to gain an authentication token.
-
-We'll use `curl`, `httpbin.org`, and `jQuery.ajax` to explore HTTP further.
-The we'll connect to an authenticated API, [library-api](https://github.com/ga-wdi-boston/library-api).
-
-The operations we'll perform:
-
-| verb   | path                   | parameters |
-| ----   | ----                   | ---------- |
-| POST   | `/sign-up`             | `credentials` containing `email`, `password`, `password_confirmation` |
-| POST   | `/sign-in`             | `credentials` containing `email` and `password` (response contains auth data) |
-| PATCH  | `/change-password/:id` | `passwords` containing `old` and `new` (requires Authorization header) |
-| DELETE | `/sign-out/:id`        | None (requires Authorization header) |
-
-### Registering with the API
-
-#### Follow along: Use an Echo Server to Help Write Code
-
-First we'll test our command against an [echo server](http://httpbin.org/post)
-to make sure we're sending the right data. There's no need to use an actual
-e-mail address and don't use anything you might want to actually use as a
-password.
-
-We'll use `scripts/sign-up[-json].sh` to run curl, first sending JSON then
-sending data the way the browser does by default. We'll see how the server
-treats both ways of sending data (it's all just strings) in a similar way.
-
-If we left out the `--include` flag we wouldn't see the response header. What's
-the benefit of using an echo server?
-
-#### Code along: Write a sign-up script
-
-Next we'll want to actually register with the API.
-
-We'll modify `scripts/sign-up[-json].sh` to connect to the `library-api`.
-
-#### Code along: Sign-up from our client
-
-Now let's put code into `assests/scripts/auth/*` to get another "e-mail" address
-registered with the API.  We'll again start with the echo server.
-
-### Logging into the API
-
-#### Code along: Write a sign-in script
-
-Now with url encoded data in `scripts/sign-in.sh`, let's sign in to the account
-we just created.
-
-#### Lab: Sign-in from the client
-
-Add a form to `index.html` and code to `assets/scripts/auth/*` to login to the
-API. You may want to start by using the echo service to check your request.
-
-What should we do with the data returned by the API?
-
-### Changing the password
-
-#### Code along: Write/Execute a change-password scripts
-
-We'll use `scripts/change-password[-json].sh` to change a password. After that
-we'll verify that we can no longer authenticate using the old password.
-
-#### Lab: Change password from the client
-
-Add a change password form to `index.html` and code to `assets/scripts/auth/*`
-to change the password.
-
-### Signing out
-
-Signing out invalidates the the current token.
-
-#### Code along: Write/Execute a sign-out script
-
-We'll use `scripts/sign-out.sh` to sign out of the API. We'll verify that the
-token we used is no longer valid.
-
-#### Lab: Sign out from the client
-
-Add a sign out form to `index.html` and code to `assets/scripts/auth/*` to sign
-out of the API.
-
-## Tasks
-
-Developers should run these often!
-
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt reformat`: reformats all your code in a standard style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Link to wireframes and user stories.
+  - User storys: https://github.com/callmelife/game-project-scope-study/blob/response/study.md
+  - Wireframe: http://imgur.com/8RCO5Yr

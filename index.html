@@ -6,52 +6,8 @@
       <script src="dependencies.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-
     <body class="container-fluid">
-      <!-- NAV BAR STARTS HERE -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SIGN UP / IN <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-
-
-                  <!-- Button trigger modal -->
-                  <li>
-                    <a>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign-up-modal">
-                      SIGN UP BRO!
-                    </button></a></li>
-
-                  <li><a href="#">SIGN UP</a></li>
-                  <li><a href="#">SIGN IN</a></li>
-                  <li><a href="#">CHANGE PASSWORD</a></li>
-                  <li><a href="#">SIGN OUT</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-      </nav>
-      <!--NAV ENDS HERES -->
       <h1>Let's Play Tic-Tac-Toe!</h1>
-
       <div id="messages">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
@@ -65,8 +21,6 @@
           <input type="submit" name="submit" value="Sign up!">
         </fieldset>
       </form>
-
-
       <form id="sign-in">
         <fieldset>
           <legend>Use the fields below to sign in to your account</legend>
@@ -75,7 +29,6 @@
           <input type="submit" name="submit" value="Sign in!">
         </fieldset>
       </form>
-
       <form id="change-password">
         <fieldset>
           <legend>After signing in, use the fields below to change your password</legend>
@@ -115,10 +68,7 @@
         <br>
       <button class="resetButton" type="button">Click Here to Start Your Game</button>
         <br>
-        <form id= "getGameById">
-        <input type="submit" value="Get Game by ID" class="btnstyle">
-        </form>
         <button class="getStats" type="button">Click Here to Get stats</button>
-        <div class="displayStats"></div>
+        <div class="game-data"></div>
     </body>
 </html>

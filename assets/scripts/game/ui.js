@@ -8,6 +8,10 @@ const newGameSuccess = (data) => {
 
 };
 
+const getGameSuccess = function(data){
+  $('.game-data').text('You have played ' + data.game.length + ' games!');
+};
 module.exports = {
   newGameSuccess,
+  getGameSuccess,
 };

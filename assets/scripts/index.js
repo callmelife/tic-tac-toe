@@ -17,6 +17,8 @@
 const authEvents = require('./auth/events.js');
 const gameApi = require('./game/api.js');
 const getGame = require('./game/api.js');
+// const getStats = require('./game/events.js');
+// const getGameSuccess = require('./game/ui.js');
 
 window.app = require('./app');
 let ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
@@ -354,7 +356,6 @@ $('.resetButton').on('click', function(){
   $(()=>{
     $('.game-board').hide();
   });
-
 
 $('.getStats').on('click', getGame);
 
