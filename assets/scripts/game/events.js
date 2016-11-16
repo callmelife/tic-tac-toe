@@ -2,45 +2,14 @@
 
 const api = require('./api');
 const ui = require('./ui');
-// const getFormFields = require('../../../lib/get-form-fields.js');
 
 let turnCounter = 1;
 let currentPlayer;
 let ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
-// let over = false;
 
-// let checkIfOver = function(){
-//   if (gameStatus = true){}
-// };
-// let checkGameStatus = $('.gameOverDisplay');
-//   checkGameStatus function(){
-//   if (over = false) {
-//     end
-//   };
-//   else
-// };
-//
-// let setGameOver = function(){
-//   if (gameStatus === 'over'){
-//     alert(game is over!);
-//   }
-// };
-
-// let setGameOver = function(){
-//   if ($('.gameOverDisplay').attr("text") === "GAME IS OVER"){
-//     gameStatus = true;
-//   }
-// };
-
-// let changeStatus = function(){
-//   if ($('over') !=
-//
-// };
-
-
-
-
-
+$('#statsButton').hide();
+$(".resetButton").hide();
+$('.game-data').hide();
 
 let lockBoard = function(){
   $('.top-left').css("pointer-events", "none");
@@ -52,8 +21,6 @@ let lockBoard = function(){
   $('.bottom-left').css("pointer-events", "none");
   $('.bottom-center').css("pointer-events", "none");
   $('.bottom-right').css("pointer-events", "none");
-
-
 };
 
 let turnOnClicks = function(){
@@ -73,114 +40,68 @@ let checkForWinner = function(){
 // Win Method #1: horizontal top row
     if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[0][1] && ticTacArray[0][0] === ticTacArray[0][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").value("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
       over = true;
-      // }
-      // else {
-      // over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 // Win Method #2: horizontal middle row
     else if (ticTacArray[1][0] !== "box" && (ticTacArray[1][0] === ticTacArray[1][1] && ticTacArray[1][0] === ticTacArray[1][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
       over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 
 // Win Method #3: horizontal bottom row
     else if (ticTacArray[2][0] !== "box" && (ticTacArray[2][0] === ticTacArray[2][1] && ticTacArray[2][0] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
-        over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
+      over = true;
       lockBoard();
+      $('.displayWinner').show();
     }
 // Win Method #4: vertical left row
     else if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[1][0] && ticTacArray[0][0] === ticTacArray[2][0])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
-        over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
+      over = true;
       lockBoard();
+      $('.displayWinner').show();
     }
 // Win Method #5: vertical middle row
     else if (ticTacArray[0][1] !== "box" && (ticTacArray[0][1] === ticTacArray[1][1] && ticTacArray[0][1] === ticTacArray[2][1])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
         over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 // Win Method #6: vertical right row
     else if (ticTacArray[0][2] !== "box" && (ticTacArray[0][2] === ticTacArray[1][2] && ticTacArray[0][2] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
         over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 // win method 7: Top left to bottom right diagonal
     else if (ticTacArray[0][0] !== "box" && (ticTacArray[0][0] === ticTacArray[1][1] && ticTacArray[0][0] === ticTacArray[2][2])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
         over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 // win method 8: top right to bottom left diagonal
     else if (ticTacArray[0][2] !== "box" && (ticTacArray[0][2] === ticTacArray[1][1] && ticTacArray[0][2] === ticTacArray[2][0])) {
       $(".displayWinner").text("The winner of this round is: " + currentPlayer);
-      $(".gameOverDisplay").text("GAME IS OVER");
-      // if (currentPlayer === 'Player 1' || 'Player 2'){
         over = true;
-      // }
-      // else {
-      //   over = false;
-      // }
       lockBoard();
+      $('.displayWinner').show();
     }
 // Makes sure the game ends at 9 clicks & doesnt cause a double reaction
     else if (turnCounter === 10) {
       $(".displayWinner").text("No winner! This game is a draw");
-      $(".gameOverDisplay").text("GAME IS OVER");
       over = true;
       lockBoard();
   }
   return over;
-
 };
-
-
-
-
 
 const onGetGame = function (event) {
     event.preventDefault();
@@ -189,11 +110,8 @@ const onGetGame = function (event) {
     .fail(ui.fail);
   };
 
-
 const addHandlers = () => {
   $('#statsButton').on('submit', onGetGame);
-
-
   $('.top-left').click(function(){
     if (ticTacArray[0][0] === "box") {
       if (turnCounter % 2 === 0) {
@@ -201,18 +119,14 @@ const addHandlers = () => {
           $(this).html('0');
           ticTacArray[0][0] = "0";
           $('.top-left').addClass('0');
-          // $('.top-left').attr('data-item','11');
       } else {
         currentPlayer = 'Player 1';
           $(this).html('X');
           ticTacArray[0][0] = "X";
           $('.top-left').addClass('X');
-          // $('.top-left').attr('data-item','11');
-
       }
       turnCounter++;
       checkForWinner();
-      // $(".clicks").text("Current click count: " + turnCounter);
     }
   });
 
@@ -367,34 +281,22 @@ const addHandlers = () => {
   $('.resetButton').on('click', function(){
       $('.displayWinner').text("");
       $('.top-left').text('');
-        // ticTacArray[0][0] = "box";
       $('.top-center').text('');
-        // ticTacArray[0][1] = "box";
       $('.top-right').text('');
-        // ticTacArray[0][2] = "box";
       $('.middle-left').text('');
-        // ticTacArray[1][0] = "box";
       $('.middle-center').text('');
-        // ticTacArray[1][1] = "box";
       $('.middle-right').text('');
-        // ticTacArray[1][2] = "box";
       $('.bottom-left').text('');
-        // ticTacArray[2][0] = "box";
       $('.bottom-center').text('');
-        // ticTacArray[2][1] = "box";
       $('.bottom-right').text('');
-        // ticTacArray[2][2] = "box";
         turnCounter = 1;
         ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
         turnOnClicks();
           console.log(ticTacArray);
           api.createGame();
           $('.game-board').show();
-
     });
 };
-
-
 
 module.exports = {
   addHandlers,

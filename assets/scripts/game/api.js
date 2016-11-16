@@ -10,12 +10,10 @@ const createGame = function(){
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-
   }).then(data=>app.game = data.game);
   };
 
 const getGame = () => {
-
   return $.ajax({
   url: app.host + '/games/' + '?over=true',
   method: "GET",
@@ -25,21 +23,7 @@ const getGame = () => {
 });
 };
 
-// SAVED BEFORE HELP FROM KEVIN
-// const getGame = (id,value) => {
-// return $.ajax({
-//   url: app.host + '/games/'+app.game.id,
-//   method: "GET",
-//   headers: {
-//     Authorization: 'Token token=' + app.user.token,
-//   }
-//
-// });
-// };
-
 const updateGame = (index,value,trueOrFalse) => {
-    // console.log('trueOrFalse);
-    // console.log('app.game is', app.game);
     return $.ajax({
       url: app.host + '/games/'+ app.game.id,
       method: "PATCH",

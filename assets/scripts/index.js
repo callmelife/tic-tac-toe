@@ -20,7 +20,10 @@ const gameApi = require('./game/api.js');
 
 // const getStats = require('./game/events.js');
 // const getGameSuccess = require('./game/ui.js');
-
+  $('#sign-in').hide();
+  $('.game-board').hide();
+  $('#sign-out').hide();
+  $('#change-password').hide();
 window.app = require('./app');
 
 
@@ -28,7 +31,6 @@ window.app = require('./app');
 $(() => {
   gameEvents.addHandlers();
   authEvents.addHandlers();
-  $('.game-board').hide();
 });
 
 // Patrick's instructions:

@@ -17,14 +17,17 @@
          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
           officia deserunt mollit anim id est laborum.
       </div>
-    <hr>
+    <!-- <hr> -->
       <form id="sign-up">
         <fieldset>
-          <legend>Use the fields below to create an account</legend>
-          <input type="text" name="credentials[email]" placeholder="E-Mail">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Conform Password">
-          <input type="submit" name="submit" value="Sign up!">
+        <legend>Use the fields below to create an account</legend>
+          <input class="email sign-up-items" type="text" name="credentials[email]" placeholder="E-Mail">
+          <br>
+          <input type="password" name="credentials[password]" placeholder="Password" class="sign-up-items">
+          <br>
+          <input type="password" class="sign-up-items" name="credentials[password_confirmation]" placeholder="Conform Password">
+          <br>
+          <input type="submit" class="sign-up-items" name="submit" value="Sign up!">
         </fieldset>
       </form>
       <form id="sign-in">
