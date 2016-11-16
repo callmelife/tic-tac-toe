@@ -45,17 +45,17 @@ const changePassword = function(data){
 };
 
 // CODE FOR AJAX
-
-const getGameById = (data) => {
-  return $.ajax({
-    url: app.host + "/games",
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    },
-    data: data,
-  });
-};
+//
+// const getGameById = (data) => {
+//   return $.ajax({
+//     url: app.host + "/games",
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token
+//     },
+//     data: data,
+//   });
+// };
 
 
 module.exports = {
@@ -63,5 +63,5 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  getGameById
+  // getGameById
 };

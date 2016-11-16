@@ -24,13 +24,13 @@ const fail = (error) => {
   console.error(error);
 };
 
-const getGameSuccess = (data) => {
- // console.log(data.length);
- app.games = data.games;
- let length = app.games.length;
- $(".displayStats").text(length);
- // console.log(data);
-};
+// const getGameSuccess = (data) => {
+//  // console.log(data.length);
+//  app.games = data.games;
+//  let length = app.games.length;
+//  $(".displayStats").text(length);
+//  // console.log(data);
+// };
 
 //CODE FOR AJAX
 
@@ -43,6 +43,6 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   // onGetGameByIdSuccess,
-  getGameSuccess,
+  // getGameSuccess,
 
 };

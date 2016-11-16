@@ -1,7 +1,7 @@
 'use strict';
 
-const app = require('../app');
-const gameInfo = require('../index.js');
+const app = require('../app.js');
+// const gameInfo = require('../index.js');
 
 const createGame = function(){
   return $.ajax({
@@ -9,21 +9,22 @@ const createGame = function(){
     method: "POST",
     headers: {
       Authorization: 'Token token=' + app.user.token,
-    }
+    },
 
   }).then(data=>app.game = data.game);
   };
 
 const getGame = () => {
-$.ajax({
-  url: app.host + '/games/'+app.game.id,
+  // debugger;
+  return $.ajax({
+  url: app.host + '/games/' + '?over=true',
   method: "GET",
   headers: {
     Authorization: 'Token token=' + app.user.token,
   }
-
 });
 };
+
 // SAVED BEFORE HELP FROM KEVIN
 // const getGame = (id,value) => {
 // return $.ajax({
@@ -37,7 +38,7 @@ $.ajax({
 // };
 
 const updateGame = (index,value,trueOrFalse) => {
-    // console.log('arguments are', id, value, TorF);
+    // console.log('trueOrFalse);
     // console.log('app.game is', app.game);
     return $.ajax({
       url: app.host + '/games/'+ app.game.id,
@@ -54,7 +55,7 @@ const updateGame = (index,value,trueOrFalse) => {
           "over": trueOrFalse
         }
       }
-    }).then(data=>app.game = data.game)
+    }).then(data=>app.game = data.game);
   };
 
 module.exports = {
