@@ -15,7 +15,7 @@ const createGame = function(){
   };
 
 const getGame = () => {
-  // debugger;
+
   return $.ajax({
   url: app.host + '/games/' + '?over=true',
   method: "GET",
