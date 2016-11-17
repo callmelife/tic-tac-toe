@@ -14,24 +14,19 @@ $grey: #808080;
   text-align: center;
   width: 100px;
 }
-
 .row {
   display: flex;
-
 }
-
 body {
   background-color: $grey;
   height: 800px;
   width: 1000px;
 }
-
 legend {
 color: white;
 text-align: center;
-
-
 }
+
 h1 {
   color: $maroon;
   font-family: fantasy;
@@ -50,7 +45,6 @@ h1 {
   font-family: monospace;
   border-radius: 5%;
 }
-
 #sign-up {
   margin-top: 20px;
   padding-top: 20px;

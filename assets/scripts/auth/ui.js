@@ -26,8 +26,6 @@ const signOutSuccess = () => {
   $(".resetButton").hide();
   $('.game-data').hide();
   $('.displayWinner').hide();
-
-
 };
 
 const changePasswordSuccess = () => {
@@ -37,24 +35,11 @@ const changePasswordSuccess = () => {
 const success = (data) => {
   console.log(data);
   $('#sign-in').show();
-
 };
 
 const fail = (error) => {
   console.error(error);
 };
-
-// const getGameSuccess = (data) => {
-//  // console.log(data.length);
-//  app.games = data.games;
-//  let length = app.games.length;
-//  $(".displayStats").text(length);
-//  // console.log(data);
-// };
-
-//CODE FOR AJAX
-
-
 
 module.exports = {
   fail,
@@ -62,7 +47,4 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
-  // onGetGameByIdSuccess,
-  // getGameSuccess,
-
 };

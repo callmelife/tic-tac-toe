@@ -36,22 +36,11 @@ const onChangePassword = function(event){
   .fail(ui.fail);
 };
 
-
-// // CODE TO HANDLE AJAX
-// const onGetGameById = function (event) {
-//   event.preventDefault();
-//   api.getGameById()
-//     .done(ui.onGetGameByIdSuccess)
-//     .fail(ui.fail);
-//   // console.log(data);
-// };
-
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
-  // $('#getGameById').on('click', onGetGameById);
 };
 
 module.exports = {

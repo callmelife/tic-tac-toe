@@ -300,5 +300,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  // onGetGame,
 };
