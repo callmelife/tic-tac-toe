@@ -8,8 +8,7 @@ const newGameSuccess = (data) => {
 };
 
 const getGameSuccess = function(data){
-  console.log(data);
-  $('.game-data').text('You have played ' + data.games.length + ' games!');
+  $('.game-data').text('You have played ' + data.games.length + ' game(s)!');
 };
 
 module.exports = {

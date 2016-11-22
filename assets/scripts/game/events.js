@@ -292,7 +292,6 @@ const addHandlers = () => {
         turnCounter = 1;
         ticTacArray = [["box","box","box"],["box","box","box"],["box","box","box"]];
         turnOnClicks();
-          console.log(ticTacArray);
           api.createGame();
           $('.game-board').show();
     });
