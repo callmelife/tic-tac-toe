@@ -33,7 +33,7 @@ webpackJsonp([0],[
 	var gameEvents = __webpack_require__(8);
 	// const gameApi = require('./game/api.js');
 
-	$('#sign-in').hide();
+	// $('#sign-in').hide();
 	$('.game-board').hide();
 	$('#sign-out').hide();
 	$('#change-password').hide();
@@ -591,7 +591,6 @@ webpackJsonp([0],[
 	    turnCounter = 1;
 	    ticTacArray = [["box", "box", "box"], ["box", "box", "box"], ["box", "box", "box"]];
 	    turnOnClicks();
-	    console.log(ticTacArray);
 	    api.createGame();
 	    $('.game-board').show();
 	  });
@@ -674,8 +673,7 @@ webpackJsonp([0],[
 	};
 
 	var getGameSuccess = function getGameSuccess(data) {
-	  console.log(data);
-	  $('.game-data').text('You have played ' + data.games.length + ' games!');
+	  $('.game-data').text('You have played ' + data.games.length + ' game(s)!');
 	};
 
 	module.exports = {
